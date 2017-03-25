@@ -1,0 +1,204 @@
+# this is an example of the Uber API
+# as a demonstration of an API spec in YAML
+swagger: '2.0'
+info:
+  title: ImaginaryBakery API
+  description: Bake quicker with the ImaginaryBakery API 
+  version: "1.0.0"
+# the domain of the service
+host: imaginary.bakery.com
+# array of all schemes that your API supports
+schemes:
+  - https
+# will be prefixed to all paths
+basePath: /v1
+produces:
+  - application/json
+paths:
+  /orderInfo:
+    post:
+      summary: createOrder()
+      description: |
+        The Products endpoint creates information about the *Imaginary Bakery* products
+        offered on the website. The response includes the id, item name
+        and price details about each product.
+      parameters:
+        - name: id
+          in: query
+          description: Bakery item id number.
+          required: true
+          type: string
+          format: uuid
+        - name: item
+          in: query
+          description: Name of the bakery item.
+          required: true
+          type: string
+          format: uuid
+        - name: price
+          in: query
+          description: Price of the bakery item.
+          required: true
+          type: number
+          format: int
+      tags:
+        - Products
+      responses:
+        200:
+          description: An array of products
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Product'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    get:
+      summary: getAllOrders()
+      description: |
+        The Products endpoint returns information about the *Imaginary Bakery* products
+        offered on the website. The response includes the id, item name
+        and price details about each product.
+      parameters:
+        - name: id
+          in: query
+          description: Bakery item id number.
+          required: true
+          type: string
+          format: uuid
+        - name: item
+          in: query
+          description: Name of the bakery item.
+          required: true
+          type: string
+          format: uuid
+        - name: price
+          in: query
+          description: Price of the bakery item.
+          required: true
+          type: number
+          format: int
+      tags:
+        - Products
+      responses:
+        200:
+          description: An array of products
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Product'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    put:
+      summary: updateOrder()
+      description: |
+        The Products endpoint updates information about the *Imaginary Bakery* products
+        offered on the website. The response includes the id, item name
+        and price details about each product.
+      parameters:
+        - name: id
+          in: query
+          description: Bakery item id number.
+          required: true
+          type: string
+          format: uuid
+        - name: item
+          in: query
+          description: Name of the bakery item.
+          required: true
+          type: string
+          format: uuid
+        - name: price
+          in: query
+          description: Price of the bakery item.
+          required: true
+          type: number
+          format: int
+      tags:
+        - Products
+      responses:
+        200:
+          description: An array of products
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Product'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /orderinfo/id:
+    get:
+      summary: getOrderForId()
+      description: |
+        Gets the order for the specified id number. 
+      parameters:
+        - name: id
+          in: query
+          description: Bakery item id number.
+          required: true
+          type: string
+          format: uuid
+      tags:
+        - Products
+      responses:
+        200:
+          description: Product retrieved by id.  
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Product'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    delete:
+      summary: deleteOrder()
+      description: |
+        Gets the order for the specified id number. 
+      parameters:
+        - name: id
+          in: query
+          description: Bakery item id number.
+          required: true
+          type: string
+          format: uuid
+      tags:
+        - Products
+      responses:
+        200:
+          description: product deleted by id. 
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Product'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+definitions:
+  Product:
+    type: object
+    properties:
+      id:
+        type: string
+        description: Product id number as a string.
+      item:
+        type: string
+        description: Product name.
+      price:
+        type: string
+        description: Price of the product.
+  Error:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      fields:
+        type: string
