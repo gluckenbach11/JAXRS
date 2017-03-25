@@ -2,6 +2,12 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/gluck/Documents/Business%20Writing/JAXRS/src/java/ImaginaryBakery/StoreResource.java</file>
+            <file>file:/C:/Users/gluck/Documents/Business%20Writing/JAXRS/src/java/ImaginaryBakery/OrderService.java</file>
+            <file>file:/C:/Users/gluck/Documents/Business%20Writing/JAXRS/src/java/ImaginaryBakery/ApplicationConfig.java</file>
+            <file>file:/C:/Users/gluck/Documents/Business%20Writing/JAXRS/src/java/ImaginaryBakery/Order.java</file>
+            <file>file:/C:/Users/gluck/Documents/Business%20Writing/JAXRS/src/java/ImaginaryBakery/OrderDAO.java</file>
+        </group>
     </open-files>
 </project-private>
