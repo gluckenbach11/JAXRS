@@ -1,0 +1,81 @@
+#%RAML 1.0
+title: API with Examples
+
+types:
+  Product:
+    type: object
+    properties:
+      id: string
+      item: string
+      price: int
+    example:
+      name: 1
+      lastname: Bundt Cake
+      price: 34
+  Error:
+    type: object
+    properties:
+      code: int
+      message: string
+      fields : string
+/orderInfo:
+  post:
+  description: Creates a new order.
+    headers:
+    body:
+      application/json:
+        type: Product
+        example: # single request body example
+          value: # needs to be declared since type contains 'value' property
+            id: 3
+            item: Silver Cake
+            price: 34
+  get:
+    description: Returns the order info.
+    responses:
+      201:
+        body:
+          application/json:
+            type: Product
+            examples:
+              Product:
+                value: # validate against the available facets for the map value of an example
+                  id: 4
+                  item: Bagels
+                  price: 20
+  put:
+    description: Edits an order.
+      headers:
+      body:
+      application/json:
+        type: Product
+          example: # single request body example
+            value: # needs to be declared since type contains 'value' property
+              id: 3
+              item: Silver Cake
+              price: 34
+/orderInfo/id:
+  get:
+    description: Returns the order info via its id number.
+    responses:
+      201:
+        body:
+          application/json:
+            type: Product
+            examples:
+              Product:
+                value: # validate against the available facets for the map value of an example
+                  id: 4
+                  item: Bagels
+                  price: 20
+  delete:
+    description: Deletes an order based on its id number.
+      headers:
+      body:
+      application/json:
+        type: Product
+          example: # single request body example
+            value: # needs to be declared since type contains 'value' property
+              id: 3
+              item: Silver Cake
+              price: 34
