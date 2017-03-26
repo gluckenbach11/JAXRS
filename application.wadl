@@ -1,0 +1,47 @@
+<application xmlns="http://wadl.dev.java.net/2009/02">
+<doc xmlns:jersey="http://jersey.java.net/" jersey:generatedBy="Jersey: 2.21 2015-08-14 21:41:51"/>
+<doc xmlns:jersey="http://jersey.java.net/" jersey:hint="This is simplified WADL with user and core resources only. To get full WADL with extended resources use the query parameter detail. Link: http://localhost:8080/JAXRS/webresources/application.wadl?detail=true"/>
+<grammars>
+<include href="application.wadl/xsd0.xsd">
+<doc title="Generated" xml:lang="en"/>
+</include>
+</grammars>
+<resources base="http://localhost:8080/JAXRS/webresources/">
+<resource path="/orderInfo">
+<method id="createOrder" name="POST">
+<request>
+<representation mediaType="application/json"/>
+</request>
+<response>
+<representation mediaType="application/json"/>
+</response>
+</method>
+<method id="getAllOrders" name="GET">
+<response>
+<representation mediaType="application/json"/>
+</response>
+</method>
+<method id="updateOrder" name="PUT">
+<request>
+<representation mediaType="application/json"/>
+</request>
+<response>
+<representation mediaType="application/json"/>
+</response>
+</method>
+<resource path="/{id}">
+<param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="id" style="template" type="xs:string"/>
+<method id="deleteOrder" name="DELETE">
+<response>
+<representation mediaType="application/json"/>
+</response>
+</method>
+<method id="getOrderForId" name="GET">
+<response>
+<representation mediaType="application/json"/>
+</response>
+</method>
+</resource>
+</resource>
+</resources>
+</application>
